@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment = "CENTER" spacing="10" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hi.verkefni.vidmot.KubburController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <Label alignment="CENTER" prefHeight="50" prefWidth="230" style="-fx-background-color: black;"  textFill="white" fx:id="fxOngoing">
+        <font>
+            <Font name="Impact" size="30" />
+        </font>
+    </Label>
+    <HBox spacing = "10" alignment="CENTER">
+        <Label prefHeight="50" prefWidth="150" text="STIGAFJÖLDI" >
+            <font>
+                <Font name="Impact" size="28" />
+            </font>
+        </Label>
+        <Label fx:id="fxStig" alignment="CENTER" prefHeight="50" prefWidth="70" style="-fx-border-color:black;" >
+            <font>
+                <Font name="Impact" size="28" />
+            </font>
+        </Label>
+    </HBox>
+    <HBox spacing = "10" alignment="CENTER">
+        <Label prefHeight="50" prefWidth="150" text="VELDU TÖLU" >
+            <font>
+                <Font name="Impact" size="28" />
+            </font>
+        </Label>
+        <TextField fx:id="fxTala" maxHeight="-Infinity" maxWidth="-Infinity" onKeyTyped="#onNyTala" prefHeight="45" prefWidth="70" style="-fx-border-color: black;" >
+            <font>
+                <Font name="Impact" size="28" />
+            </font>
+        </TextField>
+    </HBox>
+    <GridPane  fx:id="fxBord" alignment="CENTER" hgap="10" stylesheets="@css/kubbur.css" vgap="10" >
+        <Button onAction="#onSetjaStykki" prefHeight="70" prefWidth="70" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Button onAction="#onSetjaStykki" prefHeight="70" prefWidth="70" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Button onAction="#onSetjaStykki" prefHeight="70" prefWidth="70" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+        <Button onAction="#onSetjaStykki" prefHeight="70" prefWidth="70" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Button onAction="#onSetjaStykki" prefHeight="70" prefWidth="70" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Button onAction="#onSetjaStykki" prefHeight="70" prefWidth="70" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        <Button onAction="#onSetjaStykki" prefHeight="70" prefWidth="70" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Button onAction="#onSetjaStykki" prefHeight="70" prefWidth="70" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Button onAction="#onSetjaStykki" prefHeight="70" prefWidth="70" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+    </GridPane>
+
+    <Button onAction="#tilBaka" text="Tilbaka"/>
+
+
+</VBox>
