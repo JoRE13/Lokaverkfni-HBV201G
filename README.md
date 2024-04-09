@@ -8,7 +8,7 @@ This is a simple JavaFX program built upon "Kubbur". What makes our project spec
 2. Run the following command in the terminal:
 
 ```bash
-mvn: javafx:run
+mvn javafx:run
 ```
 
 3. The program will start running
