@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 /**
  * Application klasinn sem að keyrir forritið.
- * @author Jóhannes Reykdal Einarsson
+ * @author Jóhannes Reykdal Einarsson og Einar Andri Víðisson
  */
 
 public class KubburApplication extends Application {

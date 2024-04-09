@@ -5,16 +5,17 @@ public class Notandi {
     private String lykilord;
     private int peningur;
 
-    public Notandi(String notendanafn, String lykilord){
+    public Notandi(String notendanafn, String lykilord) {
         this.lykilord = lykilord;
         this.notendaNafn = notendanafn;
+        this.peningur = 0;
     }
 
     public int getPeningur() {
         return peningur;
     }
 
-    public void setPeningur(int peningur){
+    public void setPeningur(int peningur) {
         this.peningur = peningur;
     }
 
