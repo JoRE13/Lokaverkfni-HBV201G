@@ -34,7 +34,7 @@ public class HeimaController {
 
     @FXML
     protected void onNyskraning(ActionEvent actionEvent) {
-        // ViewSwitcher.switchTo(View.NYSKRANING);
+        ViewSwitcher.switchTo(View.NYSKRANING);
     }
 
     @FXML
