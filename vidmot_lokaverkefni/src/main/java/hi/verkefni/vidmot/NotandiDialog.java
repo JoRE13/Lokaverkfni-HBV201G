@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * Klasinn AskrifandiDialog sem erfir frá Dialog<"Askrifandi>  sem skiptir um dialog.
- * @author Jóhannes Reykdal Einarsson
+ * @author Jóhannes Reykdal Einarsson og Einar Andri Víðisson
  */
 public class NotandiDialog extends Dialog<Notandi> {
 
