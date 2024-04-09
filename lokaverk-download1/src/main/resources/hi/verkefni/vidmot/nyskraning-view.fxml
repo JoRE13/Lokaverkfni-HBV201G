@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="750" prefWidth="270" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hi.verkefni.vidmot.NyskraningController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+
+    <HBox maxWidth="230" prefWidth="230" >
+        <Region prefWidth="80"/>
+        <Label alignment="CENTER" text="Nýskráning" prefWidth="70" maxWidth="70">
+
+        </Label>
+        <Region prefWidth="62"/>
+        <Button onAction="#onHeim" text="X" prefWidth="18" maxWidth="18">
+
+        </Button>
+    </HBox>
+
+    <Label text="Notendanafn">
+    </Label>
+    <TextField fx:id="fxUserID" maxWidth="230" prefWidth="230">
+
+    </TextField>
+    <Region prefHeight="20"/>
+    <Label text="Lykilorð">
+    </Label>
+    <PasswordField fx:id="fxPassword" maxWidth="230" prefWidth="230">
+
+    </PasswordField>
+    <Region prefHeight="20"/>
+    <Button onAction="#onNyskraning" text="Nýskráning">
+
+    </Button>
+
+</VBox>
