@@ -1,0 +1,29 @@
+package hi.verkefni.vinnsla;
+
+public class Notandi {
+    private String notendaNafn;
+    private String lykilord;
+    private int peningur;
+
+    public Notandi(String notendanafn, String lykilord) {
+        this.lykilord = lykilord;
+        this.notendaNafn = notendanafn;
+        this.peningur = 0;
+    }
+
+    public int getPeningur() {
+        return peningur;
+    }
+
+    public void setPeningur(int peningur) {
+        this.peningur = peningur;
+    }
+
+    public String getLykilord() {
+        return lykilord;
+    }
+
+    public String getNotendaNafn() {
+        return notendaNafn;
+    }
+}
