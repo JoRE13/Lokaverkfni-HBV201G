@@ -12,10 +12,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import java.util.Arrays;
+import javafx.scene.control.Alert;
 
 /**
  * Controller fyrir forritið sem bregst við atburðum frá notenda.
- * 
+ *
  * @author Jóhannes Reykdal Einarsson og Einar Andri Víðisson
  */
 
@@ -57,7 +58,7 @@ public class KubburController {
      * sérhvern hnapp
      * sem ekki er búið að giska rétt á og er disabled, tekur myndina af honum og
      * virkjar hann aftur.
-     * 
+     *
      * @param keyEvent þegar slegið er inn í textasviðið
      */
     @FXML
@@ -66,8 +67,6 @@ public class KubburController {
             fxTala.clear();
             return;
         }
-
-        validTala = Arrays.stream(validTala).filter(t -> !t.equals(fxTala.getText())).toArray(String[]::new);
 
         fxBord.setDisable(false);
         for (Node b : fxBord.getChildren()) {
@@ -88,7 +87,7 @@ public class KubburController {
 
     /**
      * eyðir myndinni sem sett er á hnappinn þegar ýtt er á hann.
-     * 
+     *
      * @param b hnappur í gridpane fxBord
      */
     public void eydaMynd(Button b) {
@@ -104,7 +103,7 @@ public class KubburController {
      * á "réttan" hnapp. Þrjú stig fyrir fyrstu tilraun, 2 fyrir aðra, eitt stig
      * fyrir þriðju og
      * engin eftir það.
-     * 
+     *
      * @param actionEvent þegar ýtt er á hnapp.
      * @throws InterruptedException
      */
@@ -114,6 +113,9 @@ public class KubburController {
             return;
         }
         fxTala.setDisable(true);
+
+        validTala = Arrays.stream(validTala).filter(t -> !t.equals(fxTala.getText())).toArray(String[]::new);
+
         Button reitur = (Button) actionEvent.getSource(); // hvaða reitur var valinn á borðinu
         int i = GridPane.getRowIndex(reitur);
         int j = GridPane.getColumnIndex(reitur);
@@ -134,11 +136,14 @@ public class KubburController {
         } else {
             kast++;
         }
+        if (kubbur.fjoldiProperty().getValue() == 9) {
+            fxTala.setDisable(true);
+        }
     }
 
     /**
      * Setur mynd á hnapp.
-     * 
+     *
      * @param stykki stykkið sem gefur hvaða mynd á að setja á hnapp b
      * @param b      hnappur sem setja mynd á.
      */
@@ -148,11 +153,17 @@ public class KubburController {
 
     @FXML
     protected void tilBaka(ActionEvent actionEvent) {
-        if (fxOngoing.getText().equals("Leikur í gangi")) {
-            return;
+        if (kubbur.fjoldiProperty().getValue() == 0 && !fxTala.isDisabled()) {
+            ViewSwitcher.switchTo(View.HEIM);
+        } else if (kubbur.fjoldiProperty().getValue() == 9) {
+            ViewSwitcher.getCurrentUser()
+                    .setPeningur(ViewSwitcher.getCurrentUser().getPeningur() + kubbur.getStig());
+            ViewSwitcher.switchTo(View.HEIM);
+        } else {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setHeaderText("Ekki hægt að hætta");
+            a.setContentText("Leikur er í gangi");
+            a.show();
         }
-        ViewSwitcher.setCoins(ViewSwitcher.getCoins() + kubbur.getStig() - 5);
-        ViewSwitcher.switchTo(View.HEIM);
     }
-
 }

@@ -10,31 +10,23 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author Almas Baimagambetov (almaslvl@gmail.com)
- */
 public class ViewSwitcher {
 
     private static final Map<View, Parent> cache = new HashMap<>();
 
     private static Scene scene;
 
-    private static int coins = 100;
-
     public static Notendur notendur = new Notendur();
-    public static Notandi currentUser = new Notandi("Guest", "1234");;
-
-    public static void setCoins(int coins) {
-        ViewSwitcher.coins = coins;
-    }
-
-    public static int getCoins() {
-        return coins;
-    }
+    public static Notandi currentUser; // = new Notandi("Guest", "1234");
 
     public static void newUser(String s, String t){
-        notendur.add(new Notandi(s,t));
-        currentUser = new Notandi(s,t);
+        Notandi u = new Notandi(s,t);
+        notendur.add(u);
+        currentUser = u;
+    }
+
+    public static void setCurrentUser(Notandi u){
+        currentUser = u;
     }
 
     public static Notandi getCurrentUser(){

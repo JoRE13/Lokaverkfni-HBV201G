@@ -6,7 +6,9 @@ package hi.verkefni.vidmot;
 public enum View {
     KUBBUR("kubbur-view.fxml"),//view þegar lagalisti er valinn
     HEIM("heima-view.fxml"),//view heimasíðu
-    NYSKRANING("nyskraning-view.fxml");
+    NYSKRANING("nyskraning-view.fxml"),
+    INNSKRANING("innskraning-view.fxml"),
+    BUD("bud-view.fxml");
 
     private String fileName;//nafn á fxml skrá fyrir view.
 

@@ -3,9 +3,9 @@ package hi.verkefni.vidmot;
 import hi.verkefni.vinnsla.Notandi;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.control.Alert;
 
 public class HeimaController {
     private Notandi user;
@@ -16,20 +16,50 @@ public class HeimaController {
     private Label fxCoins;
     @FXML
     private Button fxKubbur;
+    @FXML
+    private Button fxBud;
+    @FXML
+    private Button fxInnskraning;
+    @FXML
+    private Button fxNyskraning;
+    @FXML
+    private Button fxLogout;
+
+    private static final String SPURNING = "Má bjóða þér að kaupa meira?";
+    private static final String TILKYNNING = "Peningaupphæðin þín er orðin ansi lág...";
+    private static final String ILAGI = "Ja!";
+    private static final String NEI = "nei";
+
+    private int counter = 0;
 
     public void initialize() {
-        // Guest user
-        user = new Notandi("Guest", "1234");
-        fxCoins.setText("Coins: " + String.valueOf(ViewSwitcher.getCoins()));
         fxKubbur.getStyleClass().add("kubburOut");
-        fxUser.setText(ViewSwitcher.getCurrentUser().getNotendaNafn());
-
+        if (ViewSwitcher.getCurrentUser() != null) {
+            fxCoins.setText("Coins: " + String.valueOf(ViewSwitcher.getCurrentUser().getPeningur()));
+            fxUser.setText(ViewSwitcher.getCurrentUser().getNotendaNafn());
+            fxKubbur.setDisable(false);
+            fxBud.setVisible(true);
+            fxInnskraning.setVisible(false);
+            fxNyskraning.setVisible(false);
+            fxLogout.setVisible(true);
+        } else {
+            fxKubbur.setDisable(true);
+            fxBud.setVisible(false);
+            fxInnskraning.setVisible(true);
+            fxNyskraning.setVisible(true);
+            fxLogout.setVisible(false);
+        }
     }
 
     @FXML
-    protected void onKaupa(ActionEvent actionEvent){
-        ViewSwitcher.setCoins(ViewSwitcher.getCoins()+50);
-        fxCoins.setText("Coins: " + String.valueOf(ViewSwitcher.getCoins()));
+    protected void onLogout(ActionEvent actionEvent) {
+        ViewSwitcher.setCurrentUser(null);
+        ViewSwitcher.switchTo(View.HEIM);
+    }
+
+    @FXML
+    protected void onKaupa(ActionEvent actionEvent) {
+        ViewSwitcher.switchTo(View.BUD);
     }
 
     @FXML
@@ -39,33 +69,37 @@ public class HeimaController {
 
     @FXML
     protected void onKubburPressed(ActionEvent actionEvent) {
-        ViewSwitcher.setCoins(ViewSwitcher.getCoins() - 10);
+        if (ViewSwitcher.getCurrentUser().getPeningur() < 20) {
+            ButtonType bType = new ButtonType(ILAGI, ButtonBar.ButtonData.OK_DONE);
+            ButtonType hType = new ButtonType(NEI, ButtonBar.ButtonData.CANCEL_CLOSE);
+
+            Alert a = new Alert(Alert.AlertType.WARNING, "Þú þarft a.m.k. 20 krónur til að spila. Kaupa meira?", bType,
+                    hType);
+            a.setHeaderText("Ekki nægilegt fjármagn");
+
+            a.showAndWait();
+            System.out.println("Button clicked. a.getResult() = " + a.getResult() + ", bType = " + bType);
+            if (a.getResult().equals(bType)) {
+                ViewSwitcher.switchTo(View.BUD);
+            }
+            return;
+        }
         ViewSwitcher.switchTo(View.KUBBUR);
-        // PauseTransition pause = new PauseTransition(Duration.seconds(5));
-        // pause.setOnFinished(event -> ViewSwitcher.switchTo(View.KUBBUR));
-        // pause.play();
     }
 
     @FXML
     protected void onInnskraning(ActionEvent actionEvent) {
-        // NotandiDialog d = new NotandiDialog();
-        // user = d.getNotandi();
-        // try {
-        // fxUser.setText(user.getNotendaNafn());
-        // } catch (NullPointerException e) {
-
-        // }
-
+        ViewSwitcher.switchTo(View.INNSKRANING);
     }
 
     @FXML
-    protected void inKubbur(MouseEvent mouseEvent){
+    protected void inKubbur(MouseEvent mouseEvent) {
         fxKubbur.getStyleClass().remove("kubburOut");
         fxKubbur.getStyleClass().add("kubburIn");
     }
 
     @FXML
-    protected void outKubbur(MouseEvent mouseEvent){
+    protected void outKubbur(MouseEvent mouseEvent) {
         fxKubbur.getStyleClass().remove("kubburIn");
         fxKubbur.getStyleClass().add("kubburOut");
     }

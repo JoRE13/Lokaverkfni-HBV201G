@@ -37,8 +37,8 @@ public class Kubbur {
         this.radir = radir;
         this.dalkar = dalkar;
         frumstillakubb(this.radir, this.dalkar);
-        stig = new SimpleStringProperty("0");
-        stigint = 0;
+        stig = new SimpleStringProperty("-23");
+        stigint = -23;
         fjoldi = new SimpleIntegerProperty(0);
     }
 

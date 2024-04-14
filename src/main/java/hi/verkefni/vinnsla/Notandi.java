@@ -3,12 +3,11 @@ package hi.verkefni.vinnsla;
 public class Notandi {
     private String notendaNafn;
     private String lykilord;
-    private int peningur;
+    private int peningur=100;
 
     public Notandi(String notendanafn, String lykilord) {
         this.lykilord = lykilord;
         this.notendaNafn = notendanafn;
-        this.peningur = 0;
     }
 
     public int getPeningur() {

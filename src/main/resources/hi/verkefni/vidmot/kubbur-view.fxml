@@ -21,7 +21,7 @@
         </font>
     </Label>
     <HBox alignment="CENTER" spacing="10">
-        <Label prefHeight="50" prefWidth="150" text="STIGAFJÖLDI">
+        <Label prefHeight="50" prefWidth="150" text="PAYOUT">
             <font>
                 <Font name="Impact" size="28" />
             </font>

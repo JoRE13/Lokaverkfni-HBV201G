@@ -4,20 +4,28 @@ import java.util.HashSet;
 
 public class Notendur {
 
-    private HashSet<String> tafla = new HashSet<>();
+    private HashSet<Notandi> tafla = new HashSet<>();
     public Notendur(){
 
     }
     public void add(Notandi u){
-        tafla.add(u.getNotendaNafn());
+        tafla.add(u);
     }
 
-    public boolean contains(Notandi u){
-        return tafla.contains(u);
+    public boolean contains(String userName){
+        for (Notandi x : tafla) {
+            if(x.getNotendaNafn().equals(userName))
+                return true;
+        }
+        return false;
     }
 
-    public boolean legal(String userName, String password){
-        Notandi u = new Notandi(userName, password);
-        return tafla.contains(u);
+
+    public Notandi getUser(String userName){
+        for (Notandi x : tafla) {
+            if(x.getNotendaNafn().equals(userName))
+                return x;
+        }
+        return null;
     }
 }
