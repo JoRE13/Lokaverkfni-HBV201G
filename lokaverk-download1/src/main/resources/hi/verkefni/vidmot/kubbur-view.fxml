@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hi.verkefni.vidmot.KubburController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <Label fx:id="fxOngoing" alignment="CENTER" prefHeight="50" prefWidth="230" style="-fx-background-color: black;" textFill="white">
+        <font>
+            <Font name="Impact" size="30" />
+        </font>
+    </Label>
+    <HBox alignment="CENTER" spacing="10">
+        <Label prefHeight="50" prefWidth="150" text="STIGAFJÖLDI">
+            <font>
+                <Font name="Impact" size="28" />
+            </font>
+        </Label>
+        <Label fx:id="fxStig" alignment="CENTER" prefHeight="50" prefWidth="70" style="-fx-border-color:black;">
+            <font>
+                <Font name="Impact" size="28" />
+            </font>
+        </Label>
+    </HBox>
+    <HBox alignment="CENTER" spacing="10">
+        <Label prefHeight="50" prefWidth="150" text="VELDU TÖLU">
+            <font>
+                <Font name="Impact" size="28" />
+            </font>
+        </Label>
+        <TextField fx:id="fxTala" maxHeight="-Infinity" maxWidth="-Infinity" onKeyTyped="#onNyTala" prefHeight="45" prefWidth="70" style="-fx-border-color: black;">
+            <font>
+                <Font name="Impact" size="28" />
+            </font>
+        </TextField>
+    </HBox>
+    <GridPane fx:id="fxBord" alignment="CENTER" hgap="10" stylesheets="@css/kubbur.css" vgap="10">
+        <Button onAction="#onSetjaStykki" prefHeight="70" prefWidth="70" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Button onAction="#onSetjaStykki" prefHeight="70" prefWidth="70" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Button onAction="#onSetjaStykki" prefHeight="70" prefWidth="70" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+        <Button onAction="#onSetjaStykki" prefHeight="70" prefWidth="70" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Button onAction="#onSetjaStykki" prefHeight="70" prefWidth="70" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Button onAction="#onSetjaStykki" prefHeight="70" prefWidth="70" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        <Button onAction="#onSetjaStykki" prefHeight="70" prefWidth="70" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Button onAction="#onSetjaStykki" prefHeight="70" prefWidth="70" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Button onAction="#onSetjaStykki" prefHeight="70" prefWidth="70" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+    </GridPane>
+
+    <Button onAction="#tilBaka" text="Til baka" />
+
+
+</VBox>

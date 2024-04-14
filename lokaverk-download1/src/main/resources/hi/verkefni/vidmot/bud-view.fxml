@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.media.MediaView?>
+<VBox prefWidth="230" prefHeight="750" style="-fx-background-color: white" stylesheets="@css/kubbur.css" spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hi.verkefni.vidmot.BudController">
+    <padding>
+        <Insets bottom="20" right="20" left="20"/>
+    </padding>
+    <Region prefHeight="10" />
+    <HBox prefHeight="20" prefWidth="230">
+        <Region prefWidth="212" />
+        <Button maxHeight="20" maxWidth="18" onAction="#onHeim" prefHeight="20" prefWidth="18" style="-fx-background-color: white" text="X" textFill="red">
+            <font>
+                <Font name="Arial bold" size="13"/>
+            </font></Button>
+    </HBox>
+    <Label alignment="CENTER" prefWidth="230" maxWidth="230" text="THE PENGUIN STORE">
+        <font>
+            <Font name="Impact" size="20"/>
+        </font>
+    </Label>
+
+    <Region prefHeight="10"/>
+    <HBox>
+        <Region prefWidth="15"/>
+        <VBox>
+            <Label prefHeight="40" prefWidth="40" maxWidth="40" maxHeight="40" style="-fx-border-color: black">
+            </Label>
+            <Label prefWidth="40" prefHeight="8" fx:id="fxMagn1" style="-fx-border-color: black"/>
+
+        </VBox>
+        <Region prefWidth="25"/>
+        <VBox>
+            <Label prefHeight="40" prefWidth="40" maxWidth="40" maxHeight="40" style="-fx-border-color: black">
+
+            </Label>
+        </VBox>
+        <Region prefWidth="25"/>
+        <VBox>
+            <Label prefHeight="40" prefWidth="40" maxWidth="40" maxHeight="40" style="-fx-border-color: black">
+
+            </Label>
+        </VBox>
+        <Region prefWidth="15"/>
+
+    </HBox>
+
+</VBox>

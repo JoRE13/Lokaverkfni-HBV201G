@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<VBox prefHeight="750" prefWidth="270" style="-fx-background-color:white" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hi.verkefni.vidmot.NyskraningController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" />
+    </padding>
+    <Region prefHeight="10" />
+    <HBox prefHeight="20" prefWidth="230">
+        <Region prefWidth="212" />
+        <Button maxHeight="20" maxWidth="18" onAction="#onHeim" prefHeight="20" prefWidth="18" style="-fx-background-color: white" text="X" textFill="red">
+            <font>
+                <Font name="Arial bold" size="13" />
+            </font></Button>
+    </HBox>
+
+    <HBox maxWidth="230" prefWidth="230">
+        <Region prefWidth="70" />
+        <Label alignment="CENTER" maxWidth="90" prefWidth="90" text="Nýskráning">
+            <font>
+                <Font name="Impact" size="15"/>
+            </font>
+        </Label>
+        <Region prefWidth="70" />
+
+    </HBox>
+    <Region prefHeight="10" />
+    <Label text="Notendanafn">
+    </Label>
+    <TextField fx:id="fxUserID" maxWidth="230" prefWidth="230" onMouseClicked="#onUsername">
+
+    </TextField>
+    <Label fx:id="fxNaNUser" prefHeight="20" textFill="RED" />
+    <Label text="Lykilorð">
+    </Label>
+    <PasswordField fx:id="fxPassword" maxWidth="230" prefWidth="230" onMouseClicked="#onPassword">
+
+    </PasswordField>
+    <Region prefHeight="10" />
+    <Label text="Staðfestu Lykilorð">
+    </Label>
+    <PasswordField fx:id="fxPasswordAgain" maxWidth="230" prefWidth="230" onMouseClicked="#onPassword">
+
+    </PasswordField>
+    <Label fx:id="fxWrongPassword" prefHeight="20" textFill="RED" />
+    <Region prefHeight="10" />
+    <Button onAction="#onNyskraning" text="Nýskráning">
+
+    </Button>
+
+
+
+
+
+
+</VBox>
