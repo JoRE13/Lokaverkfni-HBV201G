@@ -37,13 +37,13 @@ public class HeimaController {
         if (ViewSwitcher.getCurrentUser() != null) {
             fxCoins.setText("Coins: " + String.valueOf(ViewSwitcher.getCurrentUser().getPeningur()));
             fxUser.setText(ViewSwitcher.getCurrentUser().getNotendaNafn());
-            fxKubbur.setDisable(false);
+            // fxKubbur.setDisable(false);
             fxBud.setVisible(true);
             fxInnskraning.setVisible(false);
             fxNyskraning.setVisible(false);
             fxLogout.setVisible(true);
         } else {
-            fxKubbur.setDisable(true);
+            // fxKubbur.setDisable(true);
             fxBud.setVisible(false);
             fxInnskraning.setVisible(true);
             fxNyskraning.setVisible(true);
@@ -69,11 +69,18 @@ public class HeimaController {
 
     @FXML
     protected void onKubburPressed(ActionEvent actionEvent) {
-        if (ViewSwitcher.getCurrentUser().getPeningur() < 20) {
+        if (ViewSwitcher.getCurrentUser() == null) {
+            Alert a = new Alert(Alert.AlertType.WARNING, "Þú þarft að skrá þig inn til að spila", ButtonType.OK);
+            a.setHeaderText("Ekki skráður inn");
+            a.show();
+            return;
+        }
+
+        if (ViewSwitcher.getCurrentUser().getPeningur() < 23) {
             ButtonType bType = new ButtonType(ILAGI, ButtonBar.ButtonData.OK_DONE);
             ButtonType hType = new ButtonType(NEI, ButtonBar.ButtonData.CANCEL_CLOSE);
 
-            Alert a = new Alert(Alert.AlertType.WARNING, "Þú þarft a.m.k. 20 krónur til að spila. Kaupa meira?", bType,
+            Alert a = new Alert(Alert.AlertType.WARNING, "Þú þarft a.m.k. 23 krónur til að spila. Kaupa meira?", bType,
                     hType);
             a.setHeaderText("Ekki nægilegt fjármagn");
 
