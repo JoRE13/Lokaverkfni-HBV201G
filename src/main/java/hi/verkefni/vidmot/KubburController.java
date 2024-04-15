@@ -151,6 +151,13 @@ public class KubburController {
         b.getStyleClass().add(stykki.getNafn());
     }
 
+    /**
+     * Bregst við því þegar ýtt er á hnappinn til að hætta við leikinn.
+     * Ef leikur er í gangi er birt skilaboð um að leikur sé í gangi.
+     * Ef leikur er búinn er bætt við stig leikmannsins og skipt yfir á heimasíðu.
+     *
+     * @param actionEvent þegar ýtt er á hnappinn til að hætta við leikinn.
+     */
     @FXML
     protected void tilBaka(ActionEvent actionEvent) {
         if (kubbur.fjoldiProperty().getValue() == 0 && !fxTala.isDisabled()) {

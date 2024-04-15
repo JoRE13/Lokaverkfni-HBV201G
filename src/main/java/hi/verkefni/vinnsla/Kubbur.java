@@ -18,7 +18,8 @@ public class Kubbur {
                                                                                                               // nums[i-1]
                                                                                                               // hefru
                                                                                                               // nafnið
-    // á mynd i
+                                                                                                              // á mynd
+                                                                                                              // i
     private int radir;// tilviksbreyta fyrir fjölda raða á spilaborðinu
     private int dalkar;// tilviksbreyta fyrir fjölda dálka á spilaborðinu
     private Stykki[][] bord;// spilaborðið þ.e. tvívítt fylki af klasanum Stykki
@@ -37,8 +38,8 @@ public class Kubbur {
         this.radir = radir;
         this.dalkar = dalkar;
         frumstillakubb(this.radir, this.dalkar);
-        stig = new SimpleStringProperty("-23");
-        stigint = -23;
+        stig = new SimpleStringProperty("-20");
+        stigint = -20;
         fjoldi = new SimpleIntegerProperty(0);
     }
 
